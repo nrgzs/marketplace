@@ -44,10 +44,12 @@ export default function Shopping() {
             </Link>
             <div className="cart-count">Items left {item.item.count}</div>
             <input
+              defaultValue={1}
               className="cart-input"
               type="number"
               ref={inptVal}
               placeholder="1"
+              min={1}
             />
           </div>
         );
