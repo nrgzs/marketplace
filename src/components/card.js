@@ -29,7 +29,8 @@ export default function Card() {
               ></img>
               <div className="card-title">
                 <h2>{item.title}</h2>
-                <p>{item.price}</p>
+                <p>Price : {item.price}</p>
+                <p>Items Left : {item.count}</p>
               </div>
             </Link>
             <Link className="card-link" href={'/cart'}>
