@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default function Item({ data }) {
   return (
     <>
@@ -17,8 +19,8 @@ export default function Item({ data }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('https://fakestoreapi.com/products');
-  const products = await res.json();
+  const products = (await axios.get('https://fakestoreapi.com/products')).data;
+
   const id = products.map((item) => {
     return {
       params: {
@@ -34,8 +36,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch('https://fakestoreapi.com/products');
-  const products = await res.json();
+  const products = (await axios.get('https://fakestoreapi.com/products')).data;
+
   const data = products.filter((item) => context.params.id == item.id);
 
   return {

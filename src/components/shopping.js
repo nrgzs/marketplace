@@ -10,9 +10,9 @@ export default function Shopping() {
   console.log(ShoppingCart);
 
   function setcount() {
-    const value = inptVal.current.value;
+    const value = inptVal.current?.value;
 
-    ShoppingCart.map((i) => {
+    ShoppingCart?.map((i) => {
       setShoppingCart({ ...i, count: value });
       const newarr = [];
       products.map((j) => {

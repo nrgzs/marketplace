@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
 export const ContextApp = createContext();
@@ -7,8 +8,8 @@ export default function ContextComponent({ children }) {
 
   useEffect(() => {
     async function fetchdata() {
-      const res = await fetch('https://fakestoreapi.com/products');
-      const data = await res.json();
+      const data = (await axios.get('https://fakestoreapi.com/products')).data;
+
       const newarr = [];
 
       data.map((j) => {
@@ -19,7 +20,6 @@ export default function ContextComponent({ children }) {
       });
     }
     fetchdata();
-    console.log(products);
   }, []);
 
   return (
